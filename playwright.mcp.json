@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "v2",
+  "description": "Robust Playwright MCP configured for Obscura - persistence, extensions, resilience",
+  "logger": { "level": "info", "output": "stdout" },
+  "workspace": {
+    "root": "/Users/okami/MCP/playwright",
+    "outputDir": "/Users/okami/MCP/playwright/output"
+  },
+  "browser": {
+    "forcedCDPEndpoint": "ws://127.0.0.1:9222",
+    "browserName": "chromium",
+    "isolated": false,
+    "userDataDir": "/Users/okami/MCP/playwright/profile",
+    "launchOptions": {
+      "headless": false,
+      "slowMo": 500,
+      "viewport": { "width": 1920, "height": 1080 },
+      "extensions": [],
+      "ignoreHTTPSErrors": true,
+      "bypassCSP": true,
+      "javaScriptEnabled": true
+    },
+    "cdp": {
+      "headers": { "Accept": "text/html,application/json" },
+      "timeout": 60000,
+      "maxRetries": 3
+    }
+  },
+  "capabilities": {
+    "core": true,
+    "core-navigation": true,
+    "core-input": true,
+    "pdf": true,
+    "vision": true,
+    "devtools": true
+  },
+  "network": {
+    "allowedOrigins": [
+      "https://*.example.com",
+      "http://localhost:*",
+      "http://127.0.0.1:*"
+    ],
+    "blockedOrigins": []
+  },
+  "timeouts": {
+    "action": 10000,
+    "navigation": 120000,
+    "expect": 8000,
+    "settle": 1000
+  },
+  "imageResponses": "allow",
+  "filePaths": "relative",
+  "codegen": "typescript"
+}
